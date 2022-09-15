@@ -13,8 +13,8 @@ Repot can be found at [RepoChallenge1](https://github.com/JamesDartmouth/Team-Pr
 
 Screenshots.
 
-[ScreenshotTop](./assets/images/Screenshot%20Top.png)
-[ScreenshotBottom](./assets/images/Screenshot%20Bottom.png)
+[Screenshot](./assets/Screenshot.png)
+[video](./assets/Team%20profile%20generator.webm)
 
 
 ## Credits
