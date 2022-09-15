@@ -7,9 +7,9 @@ Creates a Team profile page with manager, engineers, and interns. Employee infor
 ## Usage
 
 
-User can find deployed app at [DeployedChallenge1](https://jamesdartmouth.github.io/Team-Profile-Generator/)
+User can find deployed app at [Deployed](https://jamesdartmouth.github.io/Team-Profile-Generator/)
 
-Repot can be found at [RepoChallenge1](https://github.com/JamesDartmouth/Team-Profile-Generator)
+Repot can be found at [Repo](https://github.com/JamesDartmouth/Team-Profile-Generator)
 
 Screenshots.
 
