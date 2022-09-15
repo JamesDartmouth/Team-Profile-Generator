@@ -8,7 +8,7 @@ const newTeam= function(team){
 
     team.managerArr.forEach(function(manager){
         html += `
-        <article class="col-md-4 pb-3">
+        <section class="col-md-4">
             <div class="card">
                 <div class = "card-header" id="cardhead">
                     <h2>${manager.getName()}</h2>
@@ -20,7 +20,7 @@ const newTeam= function(team){
                     <li class="list-group-item">Office Number: ${manager.getOfficeNumber()}</li>
                 </ul>
             </div>
-        </article>            
+        </section>            
         `;          
     });
 
@@ -29,7 +29,7 @@ const newTeam= function(team){
 
     team.engineerArr.forEach(function(engineer){
         html += `
-        <article class="col-md-4 pb-3">
+        <section class="col-md-4">
             <div class="card">
                 <div class = "card-header" id="cardhead" >
                     <h2>${engineer.getName()}</h2>
@@ -41,7 +41,7 @@ const newTeam= function(team){
                     <li class="list-group-item">Github: <a href="https://github.com/${engineer.getGitHub()}">${engineer.getGitHub()}</a></li>
                 </ul>
             </div>
-        </article>            
+        </section>            
         `;          
     });
 
@@ -49,7 +49,7 @@ const newTeam= function(team){
 
     team.internArr.forEach(function(intern){
         html += `
-        <article class="col-md-4 pb-3">
+        <section class="col-md-4">
             <div class="card">
                 <div class = "card-header" id="cardhead">
                     <h2>${intern.getName()}</h2>
@@ -61,7 +61,7 @@ const newTeam= function(team){
                     <li class="list-group-item">School: ${intern.getSchool()}</li>
                 </ul>
             </div>
-        </article>            
+        </section>            
         `;          
     });
   
@@ -87,10 +87,10 @@ const createHTML = function(team){
 </head>
 
 <body>
-    <header class="tophead container-fluid text-center p-5">
+    <header class="tophead container-fluid text-center">
         <h1>TEAM PROFILE</h1>
     </header>
-    <main class="container text-center p-5">
+    <main class="container text-center">
         <section class="row">   
            ${newTeam(team)}
         </section>
