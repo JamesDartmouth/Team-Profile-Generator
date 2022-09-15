@@ -1,46 +1,46 @@
-const Employee = require('../lib/Employee');
+const employee = require('../lib/employee');
 
-describe('Test Employee Class', () =>{
+describe('Employee Test', () =>{
     it('should create a new employee object',()=>{
-        const me = new Employee(1, 'james@gmail.com', 'james');
+        const temp = new employee(1, 'james@gmail.com', 'james');
 
-        expect(typeof me).toBe('object');
+        expect(typeof temp).toBe('object');
     })
 
-    it('can set a name via constructor',()=>{
-        const me = new Employee(1, 'james@gmail.com', 'james');
+    it('should set a name via constructor',()=>{
+        const temp = new employee(1, 'james@gmail.com', 'james');
 
-        expect(me.name).toEqual('james');
+        expect(temp.name).toEqual('james');
     })
 
-    it('can set a id via constructor',()=>{
-        const me = new Employee(1, 'james@gmail.com', 'james');
+    it('should set a id via constructor',()=>{
+        const temp = new employee(1, 'james@gmail.com', 'james');
 
-        expect(me.id).toEqual(1);
+        expect(temp.id).toEqual(1);
     })
-    it('can set a email via constructor',()=>{
-        const me = new Employee(1, 'james@gmail.com', 'james');
+    it('should set a email via constructor',()=>{
+        const temp = new employee(1, 'james@gmail.com', 'james');
 
-        expect(me.email).toEqual('james@gmail.com');
+        expect(temp.email).toEqual('james@gmail.com');
     })
-    it('it can retrieve email with getEmail() method',()=>{
-        const me = new Employee(1, 'james@gmail.com', 'james');
+    it('should retrieve email with getEmail() method',()=>{
+        const temp = new employee(1, 'james@gmail.com', 'james');
 
-        expect(me.getEmail()).toEqual('james@gmail.com');
+        expect(temp.getEmail()).toEqual('james@gmail.com');
     })
-    it('it can retrieve name with getName() method',()=>{
-        const me = new Employee(1, 'james@gmail.com', 'james');
+    it('should retrieve name with getName() method',()=>{
+        const temp = new employee(1, 'james@gmail.com', 'james');
 
-        expect(me.getName()).toEqual('james');
+        expect(temp.getName()).toEqual('james');
     })
-    it('it can retrieve id with getId() method',()=>{
-        const me = new Employee(1, 'james@gmail.com', 'james');
+    it('should retrieve id with getId() method',()=>{
+        const temp = new employee(1, 'james@gmail.com', 'james');
 
-        expect(me.getId()).toEqual(1);
+        expect(temp.getId()).toEqual(1);
     })
-    it('it can retrieve role with getRole() method',()=>{
-        const me = new Employee(1, 'james@gmail.com', 'james');
+    it('should retrieve role with getRole() method',()=>{
+        const temp = new employee(1, 'james@gmail.com', 'james');
 
-        expect(me.getRole()).toEqual('Employee');
+        expect(temp.getRole()).toEqual('employee');
     })
 })

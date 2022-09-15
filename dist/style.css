@@ -1,0 +1,13 @@
+.tophead {
+    background-color:crimson; color: white
+}
+
+#cardhead{
+    background-color:midnightblue; color: white
+}
+
+.card{
+    box-shadow: 5px 5px 5px rgb(133, 128, 128);
+}
+
+

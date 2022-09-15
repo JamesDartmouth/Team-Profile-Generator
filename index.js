@@ -1,17 +1,23 @@
+
+// Brings in: 1) fs to write html 2) inquirer for question prompts 3) create HTML template from helper template in src folder 4) engineer, manager and intern javascript data from lib folder
+
 const fs = require('fs');
 const inquirer = require('inquirer');
 
-const Engineer = require('./lib/Engineer');
-const Manager = require('./lib/Manager');
-const Intern = require('./lib/Intern');
+const engineer = require('./lib/engineer');
+const manager = require('./lib/manager');
+const intern = require('./lib/intern');
+const createHTML = require('./src/createHTML')
 
-const managers = [];
-const engineers = [];
-const interns = [];
+//Creates an empty array for new managers, engineers and interns
 
-const generateHTML = require('./src/generateHTML')
+const managerArr = [];
+const engineerArr = [];
+const internArr = [];
 
-function createManager() {
+// creates a new manager from the terminal inquirer prompts, pushes object into manager array and runs function newTeam()..i.e.inquirer prompts to add more team members.
+
+function newManager() {
     inquirer
         .prompt([
             {
@@ -35,15 +41,15 @@ function createManager() {
                 message: 'What is the Manager\'s office number?'
             },
         ]).then(function(answers){
-            console.log(answers);
             const{id, email, name, officeNumber} = answers;
-            managers.push(new Manager(id, email, name, officeNumber));
-            createTeam();
+            managerArr.push(new manager(id, email, name, officeNumber));
+            newTeam();
         })
 }
 
+// creates a new engineer from the terminal inquirer prompts, pushes object into engineer array and runs function newTeam()..i.e.inquirer prompts to add more team members, if needed.
 
-function createEngineer(){
+function newEngineer(){
     inquirer
     .prompt([
         {
@@ -67,15 +73,15 @@ function createEngineer(){
             message: 'What is the Engineer\'s github username?'
         },
     ]).then(function(answers){
-        console.log(answers);
         const{id, email, name, gitHub} = answers;
-        engineers.push(new Engineer(id, email, name, gitHub));
-        createTeam();
+        engineerArr.push(new engineer(id, email, name, gitHub));
+        newTeam();
     })
 }
 
+// creates a new intern from the terminal inquirer prompts, pushes object into intern array and runs function newTeam()..i.e.inquirer prompts to add more team members if needed.
 
-function createIntern(){
+function newIntern(){
     inquirer
     .prompt([
         {
@@ -99,34 +105,34 @@ function createIntern(){
             message: 'Where did the Intern go to school?'
         },
     ]).then(function(answers){
-        console.log(answers);
         const{id, email, name, school} = answers;
-        interns.push(new Intern(id, email, name, school));
-        createTeam();
+        internArr.push(new intern(id, email, name, school));
+        newTeam();
     })
 }
 
-function createTeam(){
+//function to create new team members using a switch to run appropriate team member function (another intern or engineer, there is only one manager)...
+// or no new team members which runs a function to create new team profile HTML(no more team members to add) 
+
+function newTeam(){
     inquirer
         .prompt([
             {
                 type: 'list',
-                name: 'jobList',
+                name: 'employeeRole',
                 message: 'Which type of employee would you like to add?',  
-                choices: ['Engineer', 'Intern', 'None']
+                choices: ['engineer', 'intern', 'none']
             }, 
         ]).then(function(answers){
-            console.log(answers);
-
-            switch(answers.jobList){
-                case 'Intern':
-                    createIntern();
+            switch(answers.employeeRole){
+                case 'intern':
+                    newIntern();
                     break;
-                case 'Engineer':
-                    createEngineer();    
+                case 'engineer':
+                    newEngineer();    
                     break;
                 default:
-                    fs.writeFileSync('./dist/team.html', generateHTML({ managers, engineers, interns}));
+                    fs.writeFileSync('./dist/team.html', createHTML({ managerArr, engineerArr, internArr}));
                     return;
             }
         });
@@ -134,4 +140,6 @@ function createTeam(){
 
 }
 
-createManager();
+// calls the newManager function to start building team starting with the manager
+
+newManager();
